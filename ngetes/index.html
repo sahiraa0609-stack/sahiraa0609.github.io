@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kenangan Bersama Pasanganku 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    /* GAME OVERLAY */
+#gameOverlay{
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg,#ff4fa3,#ff9acb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: white;
+}
+
+.game-box{
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.game-box h1{
+    margin-bottom: 10px;
+}
+
+.heart-btn{
+    font-size: 40px;
+    cursor: pointer;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+    100%{transform: scale(1);}
+}
+
+    /* Background Gradient Animasi */
+    body{
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff7ac8, #ffbfd4, #ffe6f3);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
+        color: #b40062;
+        text-align: center;
+    }
+    @keyframes gradientBG {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+
+    header{
+        padding: 30px 20px;
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.20);
+    }
+
+    .glass-box{
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.30);
+        padding: 25px;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 750px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(255,0,120,0.25);
+        color: #a00052;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .gallery{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .card{
+        backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.32);
+        border-radius: 18px;
+        padding: 10px;
+        box-shadow: 0 6px 20px rgba(255,0,120,0.25);
+        transition: 0.3s;
+    }
+    .card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(255,0,140,0.35);
+    }
+
+    img {
+        width: 100%;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px rgba(255,0,120,0.25);
+    }
+    video{
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-width: 300px;
+    aspect-ratio: 16 / 9;  /* rasio rapi */
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(255,0,120,0.25);
+    display: block;
+    margin: 0 auto;
+    background: #000;     /* biar ada frame hitam kalau beda rasio */
+}
+
+
+    button{
+        background: #ff2e93;
+        color: white;
+        padding: 14px 25px;
+        border: none;
+        font-size: 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        margin-top: 15px;
+        box-shadow: 0 5px 20px rgba(255,0,100,0.3);
+        transition: 0.2s;
+    }
+    button:hover{
+        transform: scale(1.05);
+    }
+
+    .floating-heart{
+        position: fixed;
+        color: #ff3e9d;
+        font-size: 34px;
+        animation: floatUp 4s linear forwards;
+        pointer-events: none;
+    }
+
+    @keyframes floatUp {
+        0%{transform: translateY(0); opacity:1;}
+        100%{transform: translateY(-200px); opacity:0;}
+    }
+
+    footer{
+        margin-top: 40px;
+        color: white;
+        padding: 20px;
+    }
+    
+</style>
+</head>
+<body>
+    <div id="gameOverlay">
+    <div class="game-box">
+        <p>Klik hati ini <b>5 kali</b><br>untuk membuka kenangan kita</p>
+        <div class="heart-btn" onclick="tapHeart()">💖</div>
+        <p id="counter">0 / 5</p>
+    </div>
+</div>
+
+
+<header>
+    Jamet zaman purba 💞
+</header>
+
+<!-- AUTOPLAY one time -->
+<audio id="lagu" loop>
+    <source src="one time.m4a" type="audio/mpeg">
+</audio>
+
+
+<div class="glass-box">
+    <h2>💗 celat </h2>
+    <p>Aku cuma mau bilang… bersyukur banget bisa punya kamu. Kamu itu tempat aku pulang,
+         tempat aku ngerasa aman, dan orang yang selalu bisa bikin aku tenang tanpa
+          harus banyak ngomong. Aku mungkin nggak selalu tau cara ngungkapinnya,
+           tapi aku sayang sama kamu—lebih dari yang kamu kira</p>
+   
+</div>
+
+<div class="glass-box">
+    <h2>📸 Galeri Foto</h2>
+    <div class="gallery">
+
+        <!-- GANTI FOTO SESUKA HATI -->
+        <div class="card"><img src="foto1.jpeg"></div>
+        <div class="card"><img src="foto2.jpg"></div>
+        <div class="card"><img src="foto3.jpg"></div>
+
+    </div>
+</div>
+
+<div class="glass-box">
+    <h2>🎞 Kenangan dalam Video</h2>
+    <div class="gallery">
+
+        <!-- GANTI VIDEO SESUKAMU -->
+        <div class="card">
+            <video controls>
+                <source src="vidio1.mp4">
+            </video>
+        </div>
+
+</div>
+
+<div class="glass-box">
+    <h2>💌 Pesan Untukmu</h2>
+    Aku bersyukur dipertemukan dengan kamu.  
+    Semua kenangan ini bukan sekadar gambar atau video—  
+    tapi bukti kalau aku pernah (dan akan selalu)  
+    **mencintaimu sepenuh hati**.  
+    <br><br>
+    <button onclick="hearts()">Putar Kenangan 💖</button>
+</div>
+
+<footer>
+    Dibuat dengan cinta untuk orang tersayang 💗
+</footer>
+
+<script>
+let count = 0;
+
+function tapHeart(){
+    count++;
+    document.getElementById("counter").innerText = count + " / 5";
+
+    if(count === 5){
+        document.getElementById("gameOverlay").style.display = "none";
+        document.getElementById("lagu").play();
+        hearts(); // animasi cinta
+    }
+}
+ 
+function hearts(){
+    for(let i=0;i<12;i++){
+        setTimeout(()=>{
+            let h = document.createElement("div");
+            h.className = "floating-heart";
+            h.innerHTML = "💖";
+            h.style.left = Math.random() * window.innerWidth + "px";
+            h.style.top = window.innerHeight + "px";
+            document.body.appendChild(h);
+            setTimeout(()=>h.remove(), 4000);
+        }, i * 150);
+    }
+}
+</script>
+
+</body>
+</html>
